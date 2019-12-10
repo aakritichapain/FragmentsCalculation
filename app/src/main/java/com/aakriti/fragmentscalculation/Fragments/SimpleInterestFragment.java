@@ -32,13 +32,25 @@ public class SimpleInterestFragment extends Fragment implements View.OnClickList
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_simple_interest, container, false);
+        etPrinciple= view.findViewById(R.id.etPrincipal);
+        etRate= view.findViewById(R.id.etRate);
+        etTime= view.findViewById(R.id.etTime);
+        tvSimpleInterest= view.findViewById(R.id.tvSimpleInterest);
+        btnSimpleInterest= view.findViewById(R.id.btnSimpleInterest);
 
+        btnSimpleInterest.setOnClickListener(this);
+        return view;
 
     }
 
     @Override
     public void onClick(View v) {
-    \
+        int num1 = Integer.parseInt(etPrinciple.getText().toString());
+        int num2 = Integer.parseInt(etRate.getText().toString());
+        int num = Integer.parseInt(etTime.getText().toString());
+
+        int si = (num1 * num2 * num) / 100;
+        tvSimpleInterest.setText("Simple Interest is: " + Integer.toString(si));
 
     }
 }

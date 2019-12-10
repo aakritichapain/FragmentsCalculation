@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.aakriti.fragmentscalculation.Fragments.AreaofCircleFragment;
+import com.aakriti.fragmentscalculation.Fragments.ArmstrongNumberFragment;
 import com.aakriti.fragmentscalculation.Fragments.AutomorphicFragment;
 import com.aakriti.fragmentscalculation.Fragments.PalindromeFragment;
 import com.aakriti.fragmentscalculation.Fragments.SimpleInterestFragment;
+import com.aakriti.fragmentscalculation.Fragments.SwappingFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button  btnAutomorphic, btnPalindrome, btnAreaofCircle, btnSimpleInterest;
+    private Button  btnAutomorphic, btnPalindrome, btnArmstrong, btnAreaofCircle, btnSimpleInterest, btnSwapping;
     private Boolean status = true;
 
     @Override
@@ -27,11 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPalindrome = findViewById(R.id.btnPalindrome);
         btnAreaofCircle= findViewById(R.id.btnAreaofCircle);
         btnSimpleInterest= findViewById(R.id.btnSimpleInterest);
+        btnArmstrong= findViewById(R.id.btnArmstrong);
+        btnSwapping= findViewById(R.id.btnSwapping);
 
         btnAutomorphic.setOnClickListener(this);
         btnPalindrome.setOnClickListener(this);
         btnAreaofCircle.setOnClickListener(this);
         btnSimpleInterest.setOnClickListener(this);
+        btnArmstrong.setOnClickListener(this);
+        btnSwapping.setOnClickListener(this);
 
     }
 
@@ -65,6 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnSimpleInterest:
                 SimpleInterestFragment simpleInterestFragment = new SimpleInterestFragment();
                 fragmentTransaction.replace(R.id.fragmentContainer, simpleInterestFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case R.id.btnArmstrong:
+                ArmstrongNumberFragment armstrongNumberFragment = new ArmstrongNumberFragment();
+                fragmentTransaction.replace(R.id.fragmentContainer, armstrongNumberFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+            case R.id.btnSwapping:
+                SwappingFragment swappingFragment = new SwappingFragment();
+                fragmentTransaction.replace(R.id.fragmentContainer, swappingFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;

@@ -8,6 +8,7 @@
     tools:context=".Fragments.SimpleInterestFragment">
 
     <EditText
+        android:inputType="number"
         android:id="@+id/etPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
         />
 
     <EditText
+        android:inputType="number"
         android:id="@+id/etRate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +32,7 @@
         />
 
     <EditText
+        android:inputType="number"
         android:id="@+id/etTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,19 +45,20 @@
 
 
     <Button
-        android:id="@+id/btnCal"
+        android:id="@+id/btnSimpleInterest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:hint="Calculate"/>
+        android:hint="Calculate SI"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvSimpleInterest"
         android:textSize="20dp"
+        android:gravity="center"
         android:textStyle="bold"/>
 
 

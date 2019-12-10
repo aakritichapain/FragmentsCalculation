@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aakriti.fragmentscalculation.R;
 
@@ -22,7 +23,7 @@ import com.aakriti.fragmentscalculation.R;
 public class PalindromeFragment extends Fragment implements View.OnClickListener {
 
     EditText etnum;
-    TextView tvmessage;
+    TextView tvPalindrome;
     Button btnPalindrome;
 
     public PalindromeFragment() {
@@ -36,7 +37,7 @@ public class PalindromeFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_palindrome, container, false);
         etnum = view.findViewById(R.id.etnum);
-        tvmessage = view.findViewById(R.id.tvmessage);
+        tvPalindrome = view.findViewById(R.id.tvPalindrome);
         btnPalindrome = view.findViewById(R.id.btnPalindrome);
 
         btnPalindrome.setOnClickListener(this);
@@ -46,25 +47,21 @@ public class PalindromeFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if (TextUtils.isEmpty(etnum.getText())) {
-            etnum.setError("Enter Something");
-            ;
-            return;
+        int num = Integer.parseInt(etnum.getText().toString());
+        int reverseNum=0, remainder, originalNum;
+        originalNum = num;
+
+        while (num !=0)
+        {
+            remainder = num % 10;
+            reverseNum = reverseNum * 10 + remainder;
+            num /=10;
         }
 
-        int r, sum = 0, temp;
-        int n = Integer.parseInt(etnum.getText().toString());//It is the number variable to be checked for palindrome
-
-        temp = n;
-        while (n > 0) {
-            r = n % 10;  //getting remainder
-            sum = (sum * 10) + r;
-            n = n / 10;
-            if (temp == sum)
-                tvmessage.setText("Palindrome Number");
-            else
-                tvmessage.setText("Not a Palindrome Number");
-
+        if(originalNum == reverseNum){
+           tvPalindrome.setText( originalNum +" is palindrome number.");
+        }else{
+            tvPalindrome.setText(originalNum + " is not palindrome number");
         }
 
 

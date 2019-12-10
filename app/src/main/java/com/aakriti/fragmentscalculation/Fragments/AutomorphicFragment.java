@@ -54,11 +54,11 @@ public class AutomorphicFragment extends Fragment implements View.OnClickListene
         }
         if(square%counter==a){
 
-            tvautmorphic.setText("it is automorphic");
+            tvautmorphic.setText("It is automorphic number. ");
 
         }
         else{
-            tvautmorphic.setText("it is not automorphic");
+            tvautmorphic.setText("It is not automorphic.");
         }
 
 
